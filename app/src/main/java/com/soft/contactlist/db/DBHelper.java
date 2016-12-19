@@ -22,8 +22,8 @@ import java.util.ArrayList;
  * Created by minos on 13.12.2016.
  */
 
-public class DBHelper extends SQLiteOpenHelper{
-    public DBHelper(Activity activity){
+public class DBHelper extends SQLiteOpenHelper {
+    public DBHelper(Activity activity) {
         super(activity, Resource.DB_NAME, null, Resource.DB_VER);
     }
 
@@ -38,8 +38,6 @@ public class DBHelper extends SQLiteOpenHelper{
         new UserDAO(sqLiteDatabase).save(new User("Troll", "911-911-11", R.drawable.icon4));
 
         new UserDAO(sqLiteDatabase).save(new User("Troll", "911-911-11", R.drawable.icon4));
-
-
 
 
     }

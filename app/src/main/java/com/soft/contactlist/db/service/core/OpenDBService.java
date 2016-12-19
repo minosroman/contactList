@@ -17,17 +17,19 @@ public class OpenDBService {
         return sqLiteDatabase;
     }
 
-    protected boolean isOpen(){
+    protected boolean isOpen() {
         return sqLiteDatabase != null && dbHelper != null && sqLiteDatabase.isOpen();
     }
-    protected void open(Activity activity){
-        if (sqLiteDatabase == null || !sqLiteDatabase.isOpen()){
+
+    protected void open(Activity activity) {
+        if (sqLiteDatabase == null || !sqLiteDatabase.isOpen()) {
             dbHelper = new DBHelper(activity);
             sqLiteDatabase = dbHelper.getWritableDatabase();
         }
     }
-    protected void close(){
-        if(dbHelper != null){
+
+    protected void close() {
+        if (dbHelper != null) {
             dbHelper.close();
         }
     }

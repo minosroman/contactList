@@ -9,8 +9,10 @@ import java.util.List;
  */
 
 public interface DAO<T> {
-    long save (T t);
+    long save(T t);
+
     List<T> getAll();
+
     List<T> parseCursor(Cursor cursor);
 
 }

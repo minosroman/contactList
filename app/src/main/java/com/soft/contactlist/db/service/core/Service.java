@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface Service<T> {
     long save(T t);
-        List<T> getAll();
+
+    List<T> getAll();
 }

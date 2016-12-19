@@ -11,7 +11,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import com.soft.contactlist.db.service.UserService;
+
 import static com.soft.contactlist.db.Resource.DB_NAME;
 
 public class MainActivity extends AppCompatActivity {
