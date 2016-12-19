@@ -25,8 +25,8 @@ public class UpdateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
         setTitle("Update Your Contact");
-        name = (EditText) findViewById(R.id.addPhone);
-        phone = (EditText) findViewById(R.id.changeName);
+        name = (EditText) findViewById(R.id.changeName);
+        phone = (EditText) findViewById(R.id.addPhone);
         image = (ImageView) findViewById(R.id.addImage);
 
         final User user = getIntent().getParcelableExtra("user");
