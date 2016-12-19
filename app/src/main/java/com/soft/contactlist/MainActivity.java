@@ -1,27 +1,17 @@
 package com.soft.contactlist;
 
-import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.soft.contactlist.db.Resource;
 import com.soft.contactlist.db.service.UserService;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import static com.soft.contactlist.db.Resource.DB_NAME;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,14 +21,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
+        setTitle("My Contact List App");
 
         final ListView listView = (ListView) findViewById(R.id.contact_list);
         contactAdapter = new ContactAdapter(new UserService(this).getAll(), this);
         listView.setAdapter(contactAdapter);
-
         registerForContextMenu(listView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -49,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, 2);
             }
         });
-
 
     }
 

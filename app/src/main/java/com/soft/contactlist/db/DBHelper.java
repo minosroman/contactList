@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.provider.ContactsContract;
 import android.widget.ListView;
 
+import com.soft.contactlist.MainActivity;
 import com.soft.contactlist.R;
 import com.soft.contactlist.User;
 import com.soft.contactlist.db.dao.UserDAO;
@@ -36,9 +37,13 @@ public class DBHelper extends SQLiteOpenHelper{
         new UserDAO(sqLiteDatabase).save(new User("Bandit", "102-102-02", R.drawable.icon3));
         new UserDAO(sqLiteDatabase).save(new User("Troll", "911-911-11", R.drawable.icon4));
 
+        new UserDAO(sqLiteDatabase).save(new User("Troll", "911-911-11", R.drawable.icon4));
+
+
 
 
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {

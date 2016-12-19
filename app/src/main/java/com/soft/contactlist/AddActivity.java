@@ -13,12 +13,13 @@ public class AddActivity extends AppCompatActivity {
     EditText phone;
     EditText name;
     ImageView image;
-    int sImage;
+    int sImage = R.drawable.icon6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_applications);
+        setTitle("Add New Contact");
         phone = (EditText) findViewById(R.id.addPhone);
         name = (EditText) findViewById(R.id.changeName);
         image = (ImageView) findViewById(R.id.addImage);
@@ -50,12 +51,11 @@ public class AddActivity extends AppCompatActivity {
         findViewById(R.id.selectImage).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
+                /*Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                intent.setType("file*//*");
-                startActivity(intent);
+                intent.setType("file*//**//*");
+                startActivity(intent);*/
 
-                sImage = R.drawable.icon7;
                 image.setImageResource(sImage);
             }
         });
