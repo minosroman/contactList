@@ -5,73 +5,73 @@
     android:id="@+id/activity_splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.soft.contactlist.SplashActivity"
-    android:gravity="center">
+    tools:context="com.soft.contactlist.SplashActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-100dp">
+        android:layout_marginTop="-100dp"
+        android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/imageView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@mipmap/android"
-            android:id="@+id/imageView2" />
+            app:srcCompat="@mipmap/android" />
 
         <TextView
-            android:text="My Contact List"
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView"
-            android:textStyle="normal|bold"
+            android:paddingTop="10dp"
+            android:text="My Contact List"
             android:textAlignment="center"
             android:textSize="30sp"
-            android:paddingTop="10dp" />
+            android:textStyle="normal|bold" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:paddingTop="30dp">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:orientation="horizontal">
 
             <TextView
-                android:text="loading:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/tvLoading"
-                android:textAlignment="textEnd"
-                android:layout_weight="1" />
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="loading:"
+                android:textAlignment="textEnd" />
+
+            <TextView
                 android:id="@+id/tvLoadText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="10dp"
+                android:text="...please wait a moment"
                 android:textAlignment="textStart"
-                android:textStyle="normal|italic"
-                android:text="...please wait a moment" />
+                android:textStyle="normal|italic" />
         </LinearLayout>
 
         <ProgressBar
+            android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/progressBar"
             android:padding="20dp" />
 
     </LinearLayout>

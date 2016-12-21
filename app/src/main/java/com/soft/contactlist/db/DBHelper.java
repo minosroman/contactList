@@ -32,13 +32,15 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(Resource.User.CREATE_TABLE);
 
-        new UserDAO(sqLiteDatabase).save(new User("Goblin", "646-050-05-05", R.drawable.icon1));
+        /*new UserDAO(sqLiteDatabase).save(new User("Goblin", "646-050-05-05", R.drawable.icon1));
         new UserDAO(sqLiteDatabase).save(new User("Ork", "321-123-222", R.drawable.icon2));
         new UserDAO(sqLiteDatabase).save(new User("Bandit", "102-102-02", R.drawable.icon3));
-        new UserDAO(sqLiteDatabase).save(new User("Troll", "911-911-11", R.drawable.icon4));
+        new UserDAO(sqLiteDatabase).save(new User("Troll", "911-911-11", R.drawable.icon4));*/
 
-        new UserDAO(sqLiteDatabase).save(new User("Troll", "911-911-11", R.drawable.icon4));
-
+        new UserDAO(sqLiteDatabase).save(new User(MainActivity.c1, MainActivity.p1, R.drawable.icon1));
+        new UserDAO(sqLiteDatabase).save(new User(MainActivity.c2, MainActivity.p2, R.drawable.icon2));
+        new UserDAO(sqLiteDatabase).save(new User(MainActivity.c3, MainActivity.p3, R.drawable.icon3));
+        new UserDAO(sqLiteDatabase).save(new User(MainActivity.c4, MainActivity.p4, R.drawable.icon4));
 
     }
 

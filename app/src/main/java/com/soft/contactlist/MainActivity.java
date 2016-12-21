@@ -1,8 +1,11 @@
 package com.soft.contactlist;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -12,18 +15,51 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.soft.contactlist.db.Resource;
+import com.soft.contactlist.db.dao.UserDAO;
 import com.soft.contactlist.db.service.UserService;
-
-import static com.soft.contactlist.db.Resource.DB_NAME;
 
 public class MainActivity extends AppCompatActivity {
     ContactAdapter contactAdapter;
+    String nameLL;
+    String numberLL;
+    public static String c1, p1, c2, p2, c3, p3, c4, p4;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle("My Contact List App");
+
+
+
+        Uri uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
+        String[] projection = new String[] {ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
+                ContactsContract.CommonDataKinds.Phone.NUMBER};
+        Cursor people = getContentResolver().query(uri, projection, null, null, null);
+        int indexName = people.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
+        int indexNumber = people.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+        people.moveToFirst();
+        /*if(people.moveToFirst()) {
+            do {
+                nameLL   = people.getString(indexName);
+                numberLL = people.getString(indexNumber);
+                } while (people.moveToNext());
+        }*/
+        c1   = people.getString(indexName);
+        p1 = people.getString(indexNumber);
+        people.moveToNext();
+        c2   = people.getString(indexName);
+        p2 = people.getString(indexNumber);
+        people.moveToNext();
+        c3   = people.getString(indexName);
+        p3 = people.getString(indexNumber);
+        people.moveToNext();
+        c4   = people.getString(indexName);
+        p4 = people.getString(indexNumber);
+
+
+
 
         final ListView listView = (ListView) findViewById(R.id.contact_list);
         contactAdapter = new ContactAdapter(new UserService(this).getAll(), this);
@@ -85,7 +121,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, 1);
                 return true;
             case R.id.menu_clear:
-                SQLiteDatabase.deleteDatabase(getDatabasePath(DB_NAME));
+                SQLiteDatabase.deleteDatabase(getDatabasePath(Resource.DB_NAME));
+                return true;
+            case R.id.import_contacts:
+                Intent imp_intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+                Toast.makeText(this, "name "+c1 +", phone "+p1, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "name "+c2 +", phone "+p2, Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -102,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
             contactAdapter.addUser(user);*/
             contactAdapter.invalidate();
         }
-        //super.onActivityResult(requestCode, resultCode, data);
+            // super.onActivityResult(requestCode, resultCode, data);
+
     }
 }
